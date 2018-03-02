@@ -22,11 +22,15 @@ function handleFileSelect(evt) {
     reader.onload = function (evt) {
         var src = evt.target.result;
 				img.src = src;
-				var data = imgDataToCode(img, newWidth.value);
-				result.width = newWidth;
-				// console.log(result);
-				result.innerHTML = data;
-				console.log(data.length);
+        img.onload = function (argument) {
+          // console.log(this.width +'----------'+this.height)  //这里就是上传图片的宽和高了
+          var data = imgDataToCode(this, newWidth.value);
+  				result.width = newWidth;
+  				// console.log(result);
+  				result.innerHTML = data;
+  				// console.log(data.length);
+        }
+
     };
     reader.readAsDataURL(file);
 
@@ -43,7 +47,7 @@ function rgbToGrey(r, g, b) {
 
 function imgDataToCode(img, newWidth) {
 	const newHeight = parseInt(newWidth * img.height / img.width);
-	console.log(newWidth, newHeight);
+	// console.log(newWidth, newHeight);
 	canvas.width = newWidth;
 	canvas.height = newHeight;
 	ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, newWidth, newHeight);
@@ -65,7 +69,7 @@ function imgDataToCode(img, newWidth) {
 			"b" : blue,
 		});
 	}
-	console.log(rgbList);
+	// console.log(rgbList);
 
 	var i = 0;
 	for (;i< newHeight; i++) {
