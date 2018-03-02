@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>React Demo</title>
+</head>
+<body>
+	<span class="fileinput-new">选择文件</span>
+	<input type="file" name="..." id="fileInput" >
+	<label>请输入您要的图片宽度：</label>
+	<input type="number" name="width" id="newWidth" value="100">
+
+  <h4>原图像：</h4>
+  <img id="source" />
+	<br/>
+	<h4>更改大小后的图像：</h4>
+	<canvas id="canvas" style="display:block;">你的浏览器不支持Canvas</canvas>
+
+	<h4>代码预览结果：</h4>
+	<pre id="result"></pre>
+
+	<script src="./util.js"></script>
+</body>
+</html>
