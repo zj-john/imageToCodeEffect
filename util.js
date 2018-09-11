@@ -38,7 +38,7 @@ function handleFileSelect(evt) {
 
 
 
-function rgbToGrey(r, g, b) {
+function rgbToGray(r, g, b) {
 	var gray = parseInt((19595 * r + 38469 * g + 7472 * b) >> 16);
 	var unit = 256.0/ascii_char.length ;
 	return ascii_char[parseInt(gray/unit)];
@@ -79,7 +79,7 @@ function imgDataToCode(img, newWidth) {
 			// console.log(i*width + j);
 			var item = rgbList[i*newWidth + j];
 			// console.log("1");
-			txt += rgbToGrey(item.r, item.g, item.b);
+			txt += rgbToGray(item.r, item.g, item.b);
 		}
 		txt += '\n';
 	}
